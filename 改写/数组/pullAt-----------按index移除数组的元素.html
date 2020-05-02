@@ -1,0 +1,10 @@
+<script>
+  //rest里面的数必须从小到大
+	function pullAt(arr,...rest){
+	  rest=rest.map((d,i)=>d-i)
+	  rest.forEach(d=>arr.splice(d,1))
+	}
+	const arr=[5, 10, 15, 20];
+	pullAt(arr,1,3)
+	console.log(arr)
+</script>

@@ -1,0 +1,10 @@
+<script>
+	const users = [
+		{ 'user': 'barney',  'active': false },
+		{ 'user': 'fred',    'active': false },
+		{ 'user': 'pebbles', 'active': true }
+	];
+	//1. 按属性找
+	const _users=users.reverse()
+	console.log(_users.findIndex(d=>d.user==='fred'))
+</script>

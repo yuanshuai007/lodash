@@ -1,0 +1,25 @@
+<script>
+	function json_includes_by(json,obj,val){
+	  return json.some(d=>{
+		  if(val in d && val in obj){
+			  return d[val]===obj[val]
+			}
+		})
+	}
+	function findIndex_all(arr,brr,attr){
+	  return arr.reduce((pre,cur,i)=>{
+		  if(json_includes_by(brr,cur,attr)) pre.push(i)
+			return pre
+		},[])
+	}
+	function pullAllBy(arr,brr,attr){
+	  let indexs=findIndex_all(arr,brr,attr)
+		//console.log(indexs)
+		indexs=indexs.map((d,i)=>d-i)
+		indexs.forEach(d=>arr.splice(d,1))
+	}
+	const arr = [{ 'x': 1 }, { 'x': 2 }, { 'x': 3 }, { 'x': 1 }],
+	brr=[{ 'x': 1 }, { 'x': 3 }];
+	pullAllBy(arr,brr,'x')
+	console.log(arr)
+</script>

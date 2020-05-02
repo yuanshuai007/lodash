@@ -1,0 +1,22 @@
+<script>
+//二分查找法
+
+function sortedLastIndexBy(arr,val,attr){
+  let high=arr.length,low=0,mid=0;
+	//high和low相等了就不找了
+	while(high>low){
+	  mid=low+high>>>1;
+	  //小于就往左找
+	  if(val[attr]<arr[mid][attr]){
+		  high=mid;
+		}else{
+		//大于等于就往又找
+			low=mid+1;
+		}
+	}
+	return high
+}
+const arr=[{ 'x': 4 }, { 'x': 5 }]
+const val={x:4}
+console.log(sortedLastIndexBy(arr,val,'x'))
+</script>

@@ -1,0 +1,14 @@
+<script>
+  //flat 不改变原数组，且有返回值
+	function unionBy(iteratee,...rest){
+	  const arr=rest.flat(),brr=[];
+		return arr.reduce((pre,cur)=>{
+		  if(!brr.includes(iteratee(cur))){
+			  brr.push(iteratee(cur))
+				pre.push(cur)
+			}
+			return pre
+		},[])
+	}
+	console.log(unionBy(Math.floor,[2.1], [1.2, 2.3]))
+</script>

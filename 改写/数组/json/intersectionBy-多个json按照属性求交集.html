@@ -1,0 +1,15 @@
+<script>
+//_.intersectionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
+// => [{ 'x': 1 }]
+	function json_includes_by(json,obj,val){
+	  return json.some(d=>{
+		  if(val in d && val in obj){
+			  return d.val===obj.val
+			}
+		})
+	}
+  function intersectionBy(json1,json2,attr){
+	  return json1.filter(d=>json_includes_by(json2,d,attr))
+	}
+	console.log(intersectionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x'))
+</script>

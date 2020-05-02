@@ -1,0 +1,30 @@
+<script>
+	const arr=[['fred', 30], ['barney', 40]]
+	const brr=arr.reduce((pre,cur)=>{
+		pre[cur[0]]=cur[1]
+		return pre
+	},{})
+	console.log(brr)
+
+
+	const crr=[["num1","num2","num3","num4"],
+	["1","2","3","4"],["1","2","3","4"],["1","2","3","4"],["1","2","3","4"]];
+	const drr=crr.reduce((pre,cur,i,arr)=>{
+		if(i===4) return pre
+	  pre[arr[0][i]]=arr.reduce((pre1,cur1,j)=>{
+			if(j===0) return pre1
+			return pre1.concat(cur1[i])
+		},[])
+		return pre
+	},{})
+	console.log(crr,drr)
+//结果
+/*
+{
+    num1:["1","1","1","1"],
+    num2:["2","2","2","2"],
+    num3:["3","3","3","3"],
+    num4:["4","4","4","4"]
+}
+*/
+</script>

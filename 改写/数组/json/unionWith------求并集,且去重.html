@@ -1,0 +1,27 @@
+<script>
+//  flat 不改变原数组，且有返回值
+//	let arr=[{ 'x': 1 }],brr=[{ 'x': 2 }, { 'x': 1 }]
+//	let crr=[arr,brr].flat()
+//	crr[0].x=11
+//	console.log(crr,arr)
+	function obj_eq(obj1,obj2){
+		if(Object.keys(obj1).length!==Object.keys(obj2).length) return false
+		for(let key in obj1){
+			if(obj1[key]!==obj2[key]) return false
+		}
+		return true
+	}
+	function json_includes(json,obj){
+	  return json.some(d=>obj_eq(d,obj))
+	}
+	function unionWith(...rest){
+	  const arr=rest.flat();
+		return arr.reduce((pre,cur)=>{
+		  if(!json_includes(pre,cur)) pre.push(cur)
+			return pre
+		},[])
+	}
+	let arr=[{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }],
+	brr= [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
+	console.log(unionWith(arr,brr))
+</script>

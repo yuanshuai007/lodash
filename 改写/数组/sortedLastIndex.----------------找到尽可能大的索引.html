@@ -1,0 +1,20 @@
+<script>
+//二分查找法
+
+function sortedLastIndex(arr,val){
+  let high=arr.length,low=0,mid=0;
+	//high和low相等了就不找了
+	while(high>low){
+	  mid=low+high>>>1;
+	  //小于就往左找
+	  if(val<arr[mid]){
+		  high=mid;
+		}else{
+		//大于等于就往又找
+			low=mid+1;
+		}
+	}
+	return high
+}
+console.log(sortedLastIndex([4, 5, 5, 5, 6], 5))
+</script>

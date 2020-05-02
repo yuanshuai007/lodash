@@ -1,0 +1,25 @@
+<script>
+//var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
+//_.differenceWith(objects, [{ 'x': 1, 'y': 2 }], _.isEqual);
+//=> [{ 'x': 2, 'y': 1 }]
+//划掉相同的项
+	const json1=[{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }]//[{a:1},{b:2}],
+	json2=[{ 'x': 1, 'y': 2 }]//[{a:1}];
+
+	function obj_eq(obj1,obj2){
+		if(Object.keys(obj1).length!==Object.keys(obj2).length) return false
+		console.log(1)
+		for(let key in obj1){
+			if(obj1[key]!==obj2[key]) return false
+		}
+		return true
+	}
+
+	function json_includes(json,obj){
+	  return json.some(d=>obj_eq(d,obj))
+	}
+  //console.log(json_includes(json2,{b:2}))
+
+	const json3=json1.filter(d=>! json_includes(json2,d))
+	console.log(json3) 
+</script>

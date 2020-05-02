@@ -1,0 +1,22 @@
+<script>
+//  flat 不改变原数组，且有返回值
+//	let arr=[{ 'x': 1 }],brr=[{ 'x': 2 }, { 'x': 1 }]
+//	let crr=[arr,brr].flat()
+//	crr[0].x=11
+//	console.log(crr,arr)
+	function json_includes_by(json,obj,attr){
+	  return json.some(d=>{
+		  if(attr in d && attr in obj){
+			  return d[attr]===obj[attr]
+			}
+		})
+	}
+	function unionBy(attr,...rest){
+	  const arr=rest.flat();
+		return arr.reduce((pre,cur)=>{
+		  if(!json_includes_by(pre,cur,attr)) pre.push(cur)
+			return pre
+		},[])
+	}
+	console.log(unionBy('x',[{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }]))
+</script>

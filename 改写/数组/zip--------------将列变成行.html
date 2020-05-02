@@ -1,0 +1,29 @@
+<script>
+/*
+1.比如说有一个表
+name age school
+a    10  true
+b		 20  false
+
+2.以列来描述
+[
+  ['a','b'],
+  [10,20],
+  [true,false]
+]
+
+3.以行来描述
+[
+  ['a',10,true],
+	['b',20,false]
+]
+*/
+//将列变成行
+function zip(...rest){
+  return rest[0].reduce((pre,cur,i)=>{
+	  pre.push(rest.map(d=>d[i]))
+		return pre
+	},[])
+}
+console.log(zip(['fred', 'barney'], [30, 40], [true, false]))
+</script>

@@ -1,0 +1,14 @@
+<script>
+/*
+1.将第一个数组的值作为属性
+2.将第二个数组的值作为值
+*/
+
+function zipObject(arr,brr){
+  return arr.reduce((pre,cur,i)=>{
+	  pre[cur]=brr[i]
+		return pre
+	},{})
+}
+console.log(zipObject(['a', 'b'], [1, 2]))
+</script>

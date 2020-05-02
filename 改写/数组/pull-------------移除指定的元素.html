@@ -1,0 +1,19 @@
+<script>
+//var array = [1, 2, 3, 1, 2, 3];
+//_.pull(array, 2, 3);
+//[1, 1]
+	function indexOf_all(arr,brr){
+	  return arr.reduce((pre,cur,i)=>{
+		  if(brr.includes(cur)) pre.push(i)
+			return pre
+		},[])
+	}
+	function pull(arr,...rest){
+	  let indexs=indexOf_all(arr,rest)
+		indexs=indexs.map((d,i)=>d-i)
+		indexs.forEach(d=>arr.splice(d,1))
+	}
+	const arr=[1, 2, 3, 1, 2, 3]
+	pull(arr,2,3)
+	console.log(arr)
+</script>

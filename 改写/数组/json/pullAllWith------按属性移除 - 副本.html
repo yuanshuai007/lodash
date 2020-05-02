@@ -1,0 +1,27 @@
+<script>
+	function obj_eq(obj1,obj2){
+		if(Object.keys(obj1).length!==Object.keys(obj2).length) return false
+		for(let key in obj1){
+			if(obj1[key]!==obj2[key]) return false
+		}
+		return true
+	}
+	function json_includes(json,obj){
+	  return json.some(d=>obj_eq(d,obj))
+	}
+	function findIndex_all(arr,brr){
+	  return arr.reduce((pre,cur,i)=>{
+		  if(json_includes(brr,cur)) pre.push(i)
+			return pre
+		},[])
+	}
+	function pullAllWith(arr,brr){
+	  let indexs=findIndex_all(arr,brr)
+		indexs=indexs.map((d,i)=>d-i)
+		indexs.forEach(d=>arr.splice(d,1))
+	}
+  const arr = [{ 'x': 1, 'y': 2 }, { 'x': 3, 'y': 4 }, { 'x': 5, 'y': 6 }],
+	brr= [{ 'x': 3, 'y': 4 }]
+	pullAllWith(arr,brr)
+	console.log(arr)
+</script>

@@ -1,0 +1,20 @@
+<script>
+	const users = [
+		{ 'user': 'barney',  'active': false },
+		{ 'user': 'fred',    'active': false },
+		{ 'user': 'pebbles', 'active': true }
+	];
+	//1.按属性的值  移除active为假的
+	console.log(users.filter(d=>d.active))
+
+	//2.按对象相等，移除
+	function obj_eq(obj1,obj2){
+		if(Object.keys(obj1).length!==Object.keys(obj2).length) return false
+		for(let key in obj1){
+			if(obj1[key]!==obj2[key]) return false
+		}
+		return true
+	}
+	const obj={ 'user': 'barney', 'active': false }
+	console.log(users.filter(d=>!obj_eq(d,obj)))
+</script>

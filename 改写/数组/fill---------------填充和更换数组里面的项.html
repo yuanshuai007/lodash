@@ -1,0 +1,16 @@
+<script>
+	//1. 填充n个'a'
+	const n=3,val='a';
+	console.log(Array.from(Array(3),d=>'a'))
+
+	//2.填充n到m
+	function fn1(){
+		const arr=[1,2,3,4,5],val='*',n=2,m=3;
+		return arr.map((d,i)=>{
+		  if(i>n-1 && i<m+1){
+			  return val
+			}else{return d}
+		})	  
+	}
+	console.log(fn1())
+</script>

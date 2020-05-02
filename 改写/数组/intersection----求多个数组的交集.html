@@ -1,0 +1,7 @@
+<script>
+	function intersection(...rest){
+	  const head=rest.shift();
+		return head.filter(d=>rest.every(d1=>d1.includes(d)))
+	}
+	console.log(intersection([2, 1], [4, 2], [1, 2]))
+</script>

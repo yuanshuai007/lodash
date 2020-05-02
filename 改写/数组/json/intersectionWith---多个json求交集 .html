@@ -1,0 +1,24 @@
+<script>
+//var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
+//var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
+//_.intersectionWith(objects, others, _.isEqual);
+// => [{ 'x': 1, 'y': 2 }]
+	function obj_eq(obj1,obj2){
+		if(Object.keys(obj1).length!==Object.keys(obj2).length) return false
+		console.log(1)
+		for(let key in obj1){
+			if(obj1[key]!==obj2[key]) return false
+		}
+		return true
+	}
+
+	function json_includes(json,obj){
+	  return json.some(d=>obj_eq(d,obj))
+	}
+
+  function intersectionBy(json1,json2){
+	  return json1.filter(d=>json_includes(json2,d))
+	}
+	console.log(intersectionBy([{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }], 
+	[{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }]))
+</script>

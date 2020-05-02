@@ -1,0 +1,17 @@
+<script>
+	//封装
+	const arr=[1,[2],[3,[4]],[5,[55,[555]]],6]
+	function flattenDeep(arr,brr=[]){
+		function _flattenDeep(arr){
+			if(!Array.isArray(arr)){
+				brr.push(arr)
+			}else{
+				arr.forEach(d=>_flattenDeep(d))
+			}
+			return brr
+		}	
+		return _flattenDeep(arr)
+	}
+
+	console.log(flattenDeep(arr))
+</script>

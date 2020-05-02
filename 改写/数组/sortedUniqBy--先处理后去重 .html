@@ -1,0 +1,10 @@
+<script>
+	function sortedUniqBy(arr,iteratee){
+	  return arr.reduce((pre,cur)=>{
+		  cur=iteratee(cur)
+			if(cur!==pre[pre.length-1]) pre.push(cur)
+			return pre
+		},[])
+	}
+	console.log(sortedUniqBy([1.1, 1.2, 2.3, 2.4], Math.floor))
+</script>

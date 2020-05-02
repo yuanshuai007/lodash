@@ -1,0 +1,17 @@
+<script>
+  //json是否属性包含一个对象 [{a:1,b:2}]属性a包含{a:1}
+	//把json2中的项，
+	const json1=[{a:1},{b:2}],
+	json2=[{a:1}],
+	val='a';
+	function json_includes_by(json,obj,val){
+	  return json.some(d=>{
+		  if(val in d && val in obj){
+			  return d[val]===obj[val]
+			}
+		})
+	}
+	//console.log(json_includes(json2,{b:2},val))
+	const json3=json1.filter(d=>! json_includes_by(json2,d,val))
+	console.log(json3) //[{b:2}]
+</script>
